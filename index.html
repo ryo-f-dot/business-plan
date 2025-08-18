@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>「AI×経営コンサルティング」事業計画のご提案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Meiryo', sans-serif;
+            background-color: #f0f2f5;
+        }
+        /* スライドの基本スタイル */
+        .slide {
+            display: none; /* 初期状態では非表示 */
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.04);
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+        .slide.active {
+            display: flex; /* 表示中のスライド */
+        }
+        /* 共通の装飾スタイル */
+        .glow {
+            filter: drop-shadow(0 0 15px rgba(100, 200, 255, 0.6));
+        }
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .text-shadow {
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .agenda-item, .role-card, .phase-card, .list-item {
+            transition: all 0.3s ease-in-out;
+        }
+        .agenda-item:hover {
+            transform: translateX(10px);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        .flow-arrow {
+            background: linear-gradient(90deg, rgba(34,197,94,0) 0%, rgba(34,197,94,0.8) 50%, rgba(34,197,94,0) 100%);
+            background-size: 200% 100%;
+            animation: flow 3s linear infinite;
+        }
+        @keyframes flow {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .role-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(100, 200, 255, 0.3);
+        }
+        .timeline-line {
+            background: linear-gradient(90deg, #22d3ee, #a855f7, #ec4899);
+        }
+        .phase-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffffff;
+        }
+        .list-item:hover {
+            transform: translateX(5px);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 flex flex-col items-center justify-center min-h-screen">
+    <div class="w-full max-w-6xl">
+        <!-- スライド表示エリア -->
+        <div id="slides-wrapper">
+            <!-- Slide 1: Title -->
+            <div class="slide active flex-col justify-center items-center p-8 sm:p-12 md:p-16 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 opacity-90"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-cyan-400 rounded-full opacity-10 blur-3xl"></div>
+                <div class="absolute -top-1/4 -right-1/4 w-2/3 h-2/3 bg-purple-600 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 text-center w-full">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-tight"><span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-purple-400">「AI×経営コンサルティング」</span><br>事業計画のご提案</h1>
+                    <p class="mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl text-blue-200 max-w-4xl mx-auto font-semibold">長野県の未来を拓く、トップAIコンサルタントへの5カ年戦略ロードマップ</p>
+                    <div class="w-24 h-1.5 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mx-auto my-8 sm:my-12"></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 text-left text-base sm:text-lg text-gray-300 w-full max-w-3xl mx-auto">
+                        <div class="p-4 rounded-lg bg-white/5"><span class="block text-sm text-cyan-300 font-bold">宛名</span><span class="block mt-1 text-xl">栗屋先生</span></div>
+                        <div class="p-4 rounded-lg bg-white/5"><span class="block text-sm text-cyan-300 font-bold">提案者</span><span class="block mt-1 text-xl">藤森遼</span></div>
+                        <div class="p-4 rounded-lg bg-white/5"><span class="block text-sm text-cyan-300 font-bold">日付</span><span class="block mt-1 text-xl">2025年8月</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Agenda -->
+            <div class="slide flex-col p-8 sm:p-12 md:p-16 bg-gray-800">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800 opacity-90"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-blue-600 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 w-full">
+                    <div class="flex items-center mb-8 sm:mb-12"><span class="text-3xl sm:text-4xl font-bold text-cyan-400 mr-4">02</span><h1 class="text-4xl sm:text-5xl font-black tracking-tight">本日のアジェンダ</h1></div>
+                    <div class="space-y-4 sm:space-y-5">
+                        <div class="agenda-item flex items-start p-4 rounded-lg border-l-4 border-cyan-400 bg-white/5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-cyan-400/20 rounded-full flex items-center justify-center mr-5"><svg class="w-6 h-6 text-cyan-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 1.085-1.085-1.085m1.085 1.085L5.25 16.5" /></svg></div>
+                            <div><h2 class="text-xl sm:text-2xl font-bold text-gray-100">我々の使命と独自の価値</h2><p class="text-base sm:text-lg text-gray-400 mt-1">この事業で何を成し遂げたいのか、なぜ「私たち」でなければならないのか</p></div>
+                        </div>
+                        <div class="agenda-item flex items-start p-4 rounded-lg border-l-4 border-purple-400 bg-white/5">
+                             <div class="flex-shrink-0 w-12 h-12 bg-purple-400/20 rounded-full flex items-center justify-center mr-5"><svg class="w-6 h-6 text-purple-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg></div>
+                            <div><h2 class="text-xl sm:text-2xl font-bold text-gray-100">事業モデルと推進体制</h2><p class="text-base sm:text-lg text-gray-400 mt-1">どのようにビジネスを展開し、どのような座組で事業を進めるのか</p></div>
+                        </div>
+                        <div class="agenda-item flex items-start p-4 rounded-lg border-l-4 border-indigo-400 bg-white/5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-indigo-400/20 rounded-full flex items-center justify-center mr-5"><svg class="w-6 h-6 text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.5-10.5h-7a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-10.5a2.25 2.25 0 00-2.25-2.25z" /></svg></div>
+                            <div><h2 class="text-xl sm:text-2xl font-bold text-gray-100">5カ年戦略ロードマップ</h2><p class="text-base sm:text-lg text-gray-400 mt-1">具体的な3つのフェーズと達成目標</p></div>
+                        </div>
+                        <div class="agenda-item flex items-start p-4 rounded-lg border-l-4 border-teal-400 bg-white/5">
+                           <div class="flex-shrink-0 w-12 h-12 bg-teal-400/20 rounded-full flex items-center justify-center mr-5"><svg class="w-6 h-6 text-teal-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg></div>
+                            <div><h2 class="text-xl sm:text-2xl font-bold text-gray-100">計画実行とリスク管理</h2><p class="text-base sm:text-lg text-gray-400 mt-1">計画を確実に実行するための仕組み</p></div>
+                        </div>
+                        <div class="agenda-item flex items-start p-4 rounded-lg border-l-4 border-gray-400 bg-white/5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gray-400/20 rounded-full flex items-center justify-center mr-5"><svg class="w-6 h-6 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.76 9.76 0 01-2.53-.401m-1.44-4.896c.443.236.914.423 1.41.568m-1.44-4.896L9.75 7.5m0 0l-1.25-1.25m1.25 1.25v-4.5m0 4.5l1.25 1.25m-1.25-1.25l-1.25-1.25m6.375 7.5l1.25-1.25m0 0l1.25 1.25m-1.25-1.25v-4.5m0 4.5l-1.25 1.25m-1.25-1.25l-1.25-1.25M3.375 12.188c.443.237.914.424 1.41.569" /></svg></div>
+                            <div><h2 class="text-xl sm:text-2xl font-bold text-gray-100">質疑応答</h2></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Mission -->
+            <div class="slide flex-col justify-center p-8 sm:p-12 md:p-16 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-blue-900/50"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-cyan-600 rounded-full opacity-10 blur-3xl"></div>
+                <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-indigo-600 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 w-full">
+                    <header class="mb-8 text-center"><div class="inline-flex items-center bg-black/20 px-4 py-2 rounded-lg"><span class="text-2xl sm:text-3xl font-bold text-cyan-400 mr-3">03</span><h1 class="text-3xl sm:text-4xl font-black tracking-tight">私たちの使命（ミッション）</h1></div></header>
+                    <main class="text-center my-12"><h2 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-shadow max-w-4xl mx-auto">長野県の中小企業を、<br>次世代に継承可能な<br><span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-400">「自走する組織」</span>へ</h2></main>
+                    <footer class="max-w-4xl mx-auto"><div class="bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-white/20"><p class="text-lg sm:text-xl leading-relaxed">私たちの使命は、DXと人材育成を通じて、県内の中小企業を「自走する組織」へと変革する戦略パートナーとなることです。</p><hr class="my-4 border-white/20"><p class="text-base sm:text-lg text-gray-300">栗屋先生が培われた経営者との深い信頼関係と、私の持つ新しいテクノロジーの知見を掛け合わせることで、この大きな使命を果たせると確信しております。</p></div></footer>
+                </div>
+            </div>
+
+            <!-- Slide 4: Value Proposition -->
+            <div class="slide flex-col p-8 sm:p-12 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-slate-800"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-blue-700 rounded-full opacity-10 blur-3xl"></div>
+                <div class="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-purple-700 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 w-full flex flex-col h-full">
+                    <header class="mb-6"><div class="flex items-center"><span class="text-3xl sm:text-4xl font-bold text-cyan-400 mr-4">04</span><h1 class="text-3xl sm:text-4xl font-black tracking-tight">なぜ「今」、私たちが組むべきなのか？</h1></div><p class="text-lg sm:text-xl text-gray-300 mt-2 ml-14">三位一体の提供価値で、唯一無二のポジションを築く</p></header>
+                    <main class="flex-grow grid md:grid-cols-3 gap-6 items-center">
+                        <div class="value-card h-full flex flex-col text-center p-6 bg-white/5 rounded-xl border border-blue-400/50"><div class="w-20 h-20 mx-auto mb-4 bg-blue-500/20 rounded-full flex items-center justify-center"><svg class="w-10 h-10 text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg></div><h3 class="text-xl font-bold text-white">栗屋先生の<br>中小企業診断士としての経営知見</h3><p class="mt-2 text-lg font-bold text-blue-300">【信頼の源泉】</p><p class="mt-3 text-gray-400 text-sm flex-grow">事業の根幹を支える「信頼」です。</p></div>
+                        <div class="value-card h-full flex flex-col text-center p-6 bg-white/5 rounded-xl border border-green-400/50"><div class="w-20 h-20 mx-auto mb-4 bg-green-500/20 rounded-full flex items-center justify-center"><svg class="w-10 h-10 text-green-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg></div><h3 class="text-xl font-bold text-white">藤森の<br>Google AI/DXツールの実装能力</h3><p class="mt-2 text-lg font-bold text-green-300">【エンジン】</p><p class="mt-3 text-gray-400 text-sm flex-grow">具体的な課題解決と業務効率化を実現します。</p></div>
+                        <div class="value-card h-full flex flex-col text-center p-6 bg-white/5 rounded-xl border border-purple-400/50"><div class="w-20 h-20 mx-auto mb-4 bg-purple-500/20 rounded-full flex items-center justify-center"><svg class="w-10 h-10 text-purple-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962A3.75 3.75 0 0115 9.75v6.75m-9.75-6.75a3.75 3.75 0 017.5 0v6.75a3.75 3.75 0 01-7.5 0v-6.75z" /></svg></div><h3 class="text-xl font-bold text-white">共に創り上げる<br>社内変革者を育成する教育力</h3><p class="mt-2 text-lg font-bold text-purple-300">【文化の醸成】</p><p class="mt-3 text-gray-400 text-sm flex-grow">クライアントが自走するための「文化」を創ります。</p></div>
+                    </main>
+                    <footer class="mt-6"><div class="bg-black/40 backdrop-blur-sm p-5 rounded-lg border border-white/20 text-center"><p class="text-lg sm:text-xl font-semibold leading-relaxed">これにより、私たちは単なるIT導入屋ではなく、<br><span class="text-cyan-300">企業の文化そのものを変革する「組織開発コンサルタント」</span>として、他にはない価値を提供できます。</p></div></footer>
+                </div>
+            </div>
+
+            <!-- Slide 5: Business Model -->
+            <div class="slide flex-col p-8 sm:p-12 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-slate-800"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-green-700 rounded-full opacity-10 blur-3xl"></div>
+                <div class="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-red-700 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 w-full flex flex-col h-full">
+                    <header class="mb-6 text-center"><div class="inline-flex items-center"><span class="text-3xl sm:text-4xl font-bold text-cyan-400 mr-4">05</span><h1 class="text-3xl sm:text-4xl font-black tracking-tight">事業モデルの全体像（入口と出口）</h1></div><p class="text-lg sm:text-xl text-gray-300 mt-2">「業務DX」で信頼を得て、「事業承継・M&A」で最高の価値を提供する</p></header>
+                    <main class="flex-grow flex items-center justify-center">
+                        <div class="w-full flex flex-col md:flex-row items-center justify-between gap-4">
+                            <div class="w-full md:w-2/5 text-center p-6 bg-white/5 rounded-xl border-2 border-green-500/80"><h2 class="text-2xl font-bold text-green-400 mb-2">【入口戦略】</h2><h3 class="text-xl font-bold mb-4">業務DX支援</h3><div class="w-20 h-20 mx-auto mb-4 bg-green-500/20 rounded-full flex items-center justify-center"><svg class="w-10 h-10 text-green-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" /></svg></div><p class="text-gray-300">まずはGoogle Workspaceを切り口とした「業務DX支援」でクライアントの日常に入り込み、絶対的な信頼関係を構築します。</p></div>
+                            <div class="w-full md:w-1/5 flex flex-col items-center justify-center my-4 md:my-0"><div class="w-full h-1 md:w-1 md:h-24 bg-green-500/50 relative"><div class="absolute inset-0 flow-arrow"></div></div><div class="text-center p-3 my-2 bg-cyan-600/50 rounded-full border border-cyan-400"><h4 class="font-bold">信頼関係の構築</h4><p class="text-xs">企業価値向上</p></div><div class="w-full h-1 md:w-1 md:h-24 bg-green-500/50 relative"><div class="absolute inset-0 flow-arrow"></div></div></div>
+                            <div class="w-full md:w-2/5 text-center p-6 bg-white/5 rounded-xl border-2 border-red-500/80"><h2 class="text-2xl font-bold text-red-400 mb-2">【出口戦略】</h2><h3 class="text-xl font-bold mb-4">事業承継・M&A支援</h3><div class="w-20 h-20 mx-auto mb-4 bg-red-500/20 rounded-full flex items-center justify-center"><svg class="w-10 h-10 text-red-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg></div><p class="text-gray-300">最終的には、DXによる企業価値向上を土台とし、最も高付加価値な領域でクライアントの人生の決断に寄り添います。</p></div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+
+            <!-- Slide 6: Team -->
+            <div class="slide flex-col p-8 sm:p-12 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-slate-800"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-cyan-700 rounded-full opacity-10 blur-3xl"></div>
+                <div class="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-purple-700 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 w-full flex flex-col h-full">
+                    <header class="mb-4 text-center"><div class="inline-flex items-center"><span class="text-3xl sm:text-4xl font-bold text-cyan-400 mr-4">06</span><h1 class="text-3xl sm:text-4xl font-black tracking-tight">最強のトライアングル体制</h1></div><p class="text-lg sm:text-xl text-gray-300 mt-2">それぞれの強みを活かし、最強のチームで事業を推進します</p></header>
+                    <main class="flex-grow flex items-center justify-center">
+                        <div class="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 relative">
+                            <div class="absolute inset-0 flex items-center justify-center opacity-20"><svg class="w-full h-full" viewBox="0 0 300 200"><polygon points="150,10 290,190 10,190" stroke="cyan" stroke-width="2" fill="none" stroke-dasharray="5,5"/></svg></div>
+                            <div class="role-card relative text-center p-6 bg-white/5 rounded-xl border border-blue-400/50"><div class="w-20 h-20 mx-auto -mt-12 mb-2 bg-slate-800 rounded-full border-4 border-blue-400 flex items-center justify-center"><svg class="w-10 h-10 text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg></div><h2 class="text-xl font-bold">栗屋先生</h2><h3 class="text-lg font-bold text-blue-300 mt-1">【信頼の源泉 兼 スーパーバイザー】</h3><p class="text-sm text-gray-300 mt-3 text-left">この事業の信頼の土台です。高難易度案件のアドバイザーであり、品質の最終保証人としての役割をお願いいたします。</p></div>
+                            <div class="role-card relative text-center p-6 bg-white/5 rounded-xl border border-purple-400/50"><div class="w-20 h-20 mx-auto -mt-12 mb-2 bg-slate-800 rounded-full border-4 border-purple-400 flex items-center justify-center"><svg class="w-10 h-10 text-purple-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962A3.75 3.75 0 0115 9.75v6.75m-9.75-6.75a3.75 3.75 0 017.5 0v6.75a3.75 3.75 0 01-7.5 0v-6.75z" /></svg></div><h2 class="text-xl font-bold">熊谷部長（プルデンシャル）</h2><h3 class="text-lg font-bold text-purple-300 mt-1">【最強の営業部長 兼 アライアンス担当】</h3><p class="text-sm text-gray-300 mt-3 text-left">圧倒的な営業力と人脈を駆使し、見込み客を発掘します。地域の金融機関や士業との連携の窓口となります。</p></div>
+                            <div class="role-card relative text-center p-6 bg-white/5 rounded-xl border border-green-400/50"><div class="w-20 h-20 mx-auto -mt-12 mb-2 bg-slate-800 rounded-full border-4 border-green-400 flex items-center justify-center"><svg class="w-10 h-10 text-green-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg></div><h2 class="text-xl font-bold">私（藤森）</h2><h3 class="text-lg font-bold text-green-300 mt-1">【エンジン 兼 CTO】</h3><p class="text-sm text-gray-300 mt-3 text-left">本計画の実行責任者として、専門スキルの習得、コンサルティングサービスの提供、新サービスの開発を責任をもって担います。</p></div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+
+            <!-- Slide 7: Roadmap -->
+            <div class="slide flex-col p-8 sm:p-12 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-slate-800"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-blue-800 rounded-full opacity-10 blur-3xl"></div>
+                <div class="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-pink-800 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 w-full flex flex-col h-full">
+                    <header class="mb-8 text-center"><div class="inline-flex items-center"><span class="text-3xl sm:text-4xl font-bold text-cyan-400 mr-4">07</span><h1 class="text-3xl sm:text-4xl font-black tracking-tight">5カ年戦略ロードマップ（全体像）</h1></div></header>
+                    <main class="flex-grow flex flex-col justify-center">
+                        <div class="w-full">
+                            <div class="relative h-1 timeline-line rounded-full"><div class="absolute top-1/2 left-[16.66%] w-5 h-5 bg-gray-900 border-4 border-cyan-400 rounded-full -translate-x-1/2 -translate-y-1/2"></div><div class="absolute top-1/2 left-1/2 w-5 h-5 bg-gray-900 border-4 border-purple-400 rounded-full -translate-x-1/2 -translate-y-1/2"></div><div class="absolute top-1/2 left-[83.33%] w-5 h-5 bg-gray-900 border-4 border-pink-400 rounded-full -translate-x-1/2 -translate-y-1/2"></div></div>
+                            <div class="mt-8 grid grid-cols-3 gap-4 sm:gap-6">
+                                <div class="phase-card p-4 bg-white/5 rounded-lg border-2 border-transparent hover:border-cyan-400"><div class="text-center"><span class="text-sm font-bold text-gray-400">2025.8 - 2026.12</span><h2 class="text-lg sm:text-xl font-bold text-cyan-400 mt-1">Phase 1</h2><h3 class="text-base sm:text-lg font-bold mt-2">吸収と信頼の獲得期</h3><p class="text-xs sm:text-sm text-gray-300 mt-3 h-16">師匠の「最高の右腕」となり、「DX推進コンサルタント」としての第一歩を刻む</p></div></div>
+                                <div class="phase-card p-4 bg-white/5 rounded-lg border-2 border-transparent hover:border-purple-400"><div class="text-center"><span class="text-sm font-bold text-gray-400">2027.1 - 2028.12</span><h2 class="text-lg sm:text-xl font-bold text-purple-400 mt-1">Phase 2</h2><h3 class="text-base sm:text-lg font-bold mt-2">独自モデルの確立期</h3><p class="text-xs sm:text-sm text-gray-300 mt-3 h-16">「教える専門家」へ進化し、独自の高付加価値サービスで収益を加速させる</p></div></div>
+                                <div class="phase-card p-4 bg-white/5 rounded-lg border-2 border-transparent hover:border-pink-400"><div class="text-center"><span class="text-sm font-bold text-gray-400">2029.1 - 2030.7</span><h2 class="text-lg sm:text-xl font-bold text-pink-400 mt-1">Phase 3</h2><h3 class="text-base sm:text-lg font-bold mt-2">スケールと権威性の確立期</h3><p class="text-xs sm:text-sm text-gray-300 mt-3 h-16">地域No.1の「AI・DX戦略パートナー」として、M&A支援も手掛ける</p></div></div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+
+            <!-- Slide 8: Phase 1 -->
+            <div class="slide flex-col p-8 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-cyan-900/50"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-cyan-700 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 w-full flex flex-col h-full">
+                    <header class="mb-2"><div class="flex items-center"><span class="text-3xl sm:text-4xl font-bold text-cyan-400 mr-4">08</span><div><h1 class="text-3xl sm:text-4xl font-black tracking-tight">Phase 1 : 吸収と信頼の獲得期</h1><p class="text-base sm:text-lg text-gray-400">（〜2026年末）</p></div></div><div class="mt-3 pl-14 bg-black/20 p-2 rounded-lg border-l-4 border-cyan-400"><p class="text-lg sm:text-xl text-gray-200 font-bold">テーマ： 師匠の「最高の右腕」となり、「DX推進コンサルタント」としての第一歩を刻む</p></div></header>
+                    <main class="flex-grow grid md:grid-cols-2 gap-x-12 mt-4">
+                        <div><h2 class="text-2xl font-bold mb-2 border-b-2 border-cyan-400 pb-2">目標</h2><ul class="space-y-3"><li class="list-item flex items-start p-2 rounded-md"><svg class="w-6 h-6 text-cyan-400 mr-3 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Google認定資格3種を完全取得</span></li><li class="list-item flex items-start p-2 rounded-md"><svg class="w-6 h-6 text-cyan-400 mr-3 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>師匠の元で補助金・経営革新計画支援をマスター</span></li><li class="list-item flex items-start p-2 rounded-md"><svg class="w-6 h-6 text-cyan-400 mr-3 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Google Workspace導入支援で3社以上の実績を作る</span></li><li class="list-item flex items-start p-2 rounded-md"><svg class="w-6 h-6 text-cyan-400 mr-3 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>コンサルティング副業収入で年間300万円を達成</span></li></ul></div>
+                        <div><h2 class="text-2xl font-bold mb-2 border-b-2 border-gray-400 pb-2">共に推進させていただきたいこと</h2><ul class="space-y-4"><li class="list-item p-3 rounded-md bg-white/5"><b class="text-lg">先生の右腕としての実務支援</b><div class="text-sm text-cyan-300"><b>【狙い】事業全体の回転率向上と先生の負担軽減</b></div></li><li class="list-item p-3 rounded-md bg-white/5"><b class="text-lg">既存クライアントへの付加価値提供</b><div class="text-sm text-cyan-300"><b>【狙い】顧客満足度の向上と、新たなアップセル機会の創出</b></div></li><li class="list-item p-3 rounded-md bg-white/5"><b class="text-lg">品質管理体制の共同構築</b><div class="text-sm text-cyan-300"><b>【狙い】高単価で信頼されるサービスモデルの基礎を共に構築</b></div></li><li class="list-item p-3 rounded-md bg-white/5"><b class="text-lg">週次での戦略共有会</b><div class="text-sm text-cyan-300"><b>【狙い】計画の実行確度を高め、事業の成長を加速させる</b></div></li></ul></div>
+                    </main>
+                </div>
+            </div>
+
+            <!-- Slide 9: Phase 2 -->
+            <div class="slide flex-col p-8 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-purple-900/50"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-purple-700 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 w-full flex flex-col h-full">
+                    <header class="mb-6"><div class="flex items-center"><span class="text-3xl sm:text-4xl font-bold text-purple-400 mr-4">09</span><div><h1 class="text-3xl sm:text-4xl font-black tracking-tight">Phase 2 : 独自モデルの確立期</h1><p class="text-base sm:text-lg text-gray-400">（2027年〜2028年）</p></div></div><div class="mt-4 pl-14 bg-black/20 p-3 rounded-lg border-l-4 border-purple-400"><p class="text-lg sm:text-xl text-gray-200 font-bold">テーマ： 「教える専門家」へ進化し、独自の高付加価値サービスで収益を加速させる</p></div></header>
+                    <main class="flex-grow grid md:grid-cols-2 gap-x-12 mt-4">
+                        <div><h2 class="text-2xl font-bold mb-4 border-b-2 border-purple-400 pb-2">目標</h2><ul class="space-y-4"><li class="list-item flex items-start p-3 rounded-md"><svg class="w-8 h-8 text-purple-400 mr-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962A3.75 3.75 0 0115 9.75v6.75m-9.75-6.75a3.75 3.75 0 017.5 0v6.75a3.75 3.75 0 01-7.5 0v-6.75z" /></svg><div><h3 class="font-bold text-lg">「社内DXリーダー育成プログラム」を立ち上げ</h3><p class="text-sm text-gray-300">年間5社以上に提供</p></div></li><li class="list-item flex items-start p-3 rounded-md"><svg class="w-8 h-8 text-purple-400 mr-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 11.21 12.77 11 12 11h-2.5" /></svg><div><h3 class="font-bold text-lg">サブスクリプション型サービスを確立</h3><p class="text-sm text-gray-300">月額30万円以上の継続収益を確立</p></div></li><li class="list-item flex items-start p-3 rounded-md"><svg class="w-8 h-8 text-purple-400 mr-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-3.75-.625m3.75.625V3.375" /></svg><div><h3 class="font-bold text-lg">独立・法人化を果たす</h3><p class="text-sm text-gray-300">コンサルティング収入を本業超えさせる</p></div></li></ul></div>
+                        <div class="h-full flex flex-col"><h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-400 pb-2">共に推進させていただきたいこと</h2><ul class="flex-grow flex flex-col justify-around"><li class="list-item flex items-start p-3 rounded-md bg-white/5"><svg class="w-8 h-8 text-gray-300 mr-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.311a12.06 12.06 0 00-4.5 0m3.75 2.311a12.06 12.06 0 01-4.5 0m3.75-2.311a12.06 12.06 0 00-4.5 0" /></svg><div><h3 class="font-bold text-lg">プログラムの監修</h3><p class="text-sm text-gray-300">「DXリーダー育成プログラム」の品質を高めるため、先生の監修をお願いいたします。</p></div></li><li class="list-item flex items-start p-3 rounded-md bg-white/5"><svg class="w-8 h-8 text-gray-300 mr-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 18.75V8.25A2.652 2.652 0 0018.35 5.6A2.652 2.652 0 0015.75 3H5.25A2.652 2.652 0 002.6 5.6A2.652 2.652 0 000 8.25v10.5A2.652 2.652 0 002.6 21.35A2.652 2.652 0 005.25 24h10.5A2.652 2.652 0 0018.4 21.35l-4.04-5.99a2.652 2.652 0 00-2.94-1.19z" /></svg><div><h3 class="font-bold text-lg">共同対応パートナー</h3><p class="text-sm text-gray-300">GAS開発等の高難易度案件については、共同で対応させてください。</p></div></li></ul></div>
+                    </main>
+                </div>
+            </div>
+
+            <!-- Slide 10: Phase 3 -->
+            <div class="slide flex-col p-8 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-red-900/50"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-red-700 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 w-full flex flex-col h-full">
+                    <header class="mb-6"><div class="flex items-center"><span class="text-3xl sm:text-4xl font-bold text-red-400 mr-4">10</span><div><h1 class="text-3xl sm:text-4xl font-black tracking-tight">Phase 3 : スケールと権威性の確立期</h1><p class="text-base sm:text-lg text-gray-400">（2029年〜）</p></div></div><div class="mt-4 pl-14 bg-black/20 p-3 rounded-lg border-l-4 border-red-400"><p class="text-lg sm:text-xl text-gray-200 font-bold">テーマ： 地域No.1の「AI・DX戦略パートナー」として、M&A支援も手掛ける</p></div></header>
+                    <main class="flex-grow grid md:grid-cols-2 gap-x-12 mt-4">
+                        <div><h2 class="text-2xl font-bold mb-4 border-b-2 border-red-400 pb-2">目標</h2><ul class="space-y-4"><li class="list-item flex items-start p-3 rounded-md"><svg class="w-8 h-8 text-red-400 mr-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9a9.75 9.75 0 100-13.5h9a9.75 9.75 0 000 13.5z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12.75h4.5m-4.5 3h4.5m-4.5-6h4.5m3 6l3 3m0 0l3-3m-3 3V6" /></svg><div><h3 class="font-bold text-lg">南信地域No.1のDX支援専門家へ</h3><p class="text-sm text-gray-300">中小企業のDX支援における第一人者となる</p></div></li><li class="list-item flex items-start p-3 rounded-md"><svg class="w-8 h-8 text-red-400 mr-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962A3.75 3.75 0 0115 9.75v6.75m-9.75-6.75a3.75 3.75 0 017.5 0v6.75a3.75 3.75 0 01-7.5 0v-6.75z" /></svg><div><h3 class="font-bold text-lg">育成プログラムの事業化とチーム化</h3><p class="text-sm text-gray-300">育成プログラムを事業の柱とし、チーム化を検討</p></div></li><li class="list-item flex items-start p-3 rounded-md"><svg class="w-8 h-8 text-red-400 mr-4 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg><div><h3 class="font-bold text-lg">事業承継・成長戦略M&Aの実現</h3><p class="text-sm text-gray-300">クライアントの出口戦略と成長加速を支援する</p></div></li></ul></div>
+                        <div class="h-full flex flex-col"><h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-400 pb-2">共に目指す未来</h2><div class="flex-grow flex flex-col justify-center bg-black/20 p-6 rounded-lg"><p class="text-base leading-relaxed"><span class="text-red-300 font-bold">DX支援による企業価値向上</span>を土台に、クライアントのさらなる成長（<span class="font-bold">成長戦略M&A</span>）と、円滑な次世代へのバトンタッチ（<span class="font-bold">事業承継M&A</span>）という、経営の根幹に関わる意思決定を支援します。</p><hr class="my-3 border-white/20"><p class="text-sm text-gray-300">我々が推進するDXは、経営の可視化やオンラインでの事業継続性を高め、M&Aのデューデリジェンスを円滑化します。この<span class="font-bold">「DXシナジー」</span>こそが、クライアントの企業価値を最大化する鍵となります。</p><hr class="my-3 border-white/20"><p class="text-sm text-gray-300">深い信頼関係を築いた我々が、<span class="font-bold">「DXからM&Aまで一気通貫で支援できる地域No.1の経営パートナー」</span>としての地位を確立します。</p></div></div>
+                    </main>
+                </div>
+            </div>
+
+            <!-- Slide 11: Risk Management -->
+            <div class="slide flex-col p-8 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-teal-900/50"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-teal-700 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 w-full flex flex-col h-full">
+                    <header class="mb-6"><div class="flex items-center"><span class="text-3xl sm:text-4xl font-bold text-teal-400 mr-4">11</span><h1 class="text-3xl sm:text-4xl font-black tracking-tight">計画を絵に描いた餅にしないために</h1></div></header>
+                    <main class="flex-grow grid md:grid-cols-2 gap-x-12 mt-4">
+                        <div class="flex flex-col"><h2 class="text-2xl font-bold mb-4 border-b-2 border-teal-400 pb-2">日次・週次の実行フレームワーク</h2><ul class="flex-grow flex flex-col justify-around space-y-2"><li class="list-item flex items-center p-4 rounded-lg bg-black/20 flex-1"><svg class="w-10 h-10 text-teal-300 mr-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg><div><h3 class="font-bold text-lg">毎朝（15分）</h3><p class="text-sm text-gray-300">Notionの「羅針盤チェックリスト」で最重要タスクを確認</p></div></li><li class="list-item flex items-center p-4 rounded-lg bg-black/20 flex-1"><svg class="w-10 h-10 text-teal-300 mr-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg><div><h3 class="font-bold text-lg">毎晩（15分）</h3><p class="text-sm text-gray-300">「振り返りジャーナル」で学びを記録</p></div></li><li class="list-item flex items-center p-4 rounded-lg bg-black/20 flex-1"><svg class="w-10 h-10 text-teal-300 mr-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0h18M-4.5 12h27" /></svg><div><h3 class="font-bold text-lg">週次（1時間）</h3><p class="text-sm text-gray-300">このロードマップと照らし合わせ、進捗確認と軌道修正を実施</p></div></li></ul></div>
+                        <div class="flex flex-col"><h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-400 pb-2">想定されるリスクと対策</h2><ul class="flex-grow flex flex-col justify-around space-y-2"><li class="list-item p-4 rounded-lg bg-black/20 flex-1"><h3 class="font-bold text-lg text-red-400">リスク： 本業との両立による燃え尽き</h3><p class="text-sm text-gray-300 mt-2"><b class="text-green-400">対策：</b> 他社の案件は原則お断りします。また、本業も段階的に調整・計画し、本事業へ完全に移行できる体制を整えます。</p></li><li class="list-item p-4 rounded-lg bg-black/20 flex-1"><h3 class="font-bold text-lg text-red-400">リスク： 最初のクライアントワークの失敗</h3><p class="text-sm text-gray-300 mt-2"><b class="text-green-400">対策：</b> 必ず師匠の監督の下で遂行し、過剰な約束はしません。小さな成功を積み重ね、信頼を構築します。</p></li><li class="list-item p-4 rounded-lg bg-black/20 flex-1"><h3 class="font-bold text-lg text-red-400">リスク： パートナーとの関係悪化</h3><p class="text-sm text-gray-300 mt-2"><b class="text-green-400">対策：</b> 役割分担と報酬体系を書面で明確にし、定期的なコミュニケーションを通じて認識の齟齬を防ぎます。</p></li></ul></div>
+                    </main>
+                </div>
+            </div>
+
+            <!-- Slide 12: Thank You -->
+            <div class="slide flex-col justify-center items-center p-8 sm:p-12 md:p-16 bg-gray-900">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 opacity-90"></div>
+                <div class="absolute inset-0 bg-pattern"></div>
+                <div class="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-cyan-400 rounded-full opacity-10 blur-3xl"></div>
+                <div class="absolute -top-1/4 -right-1/4 w-2/3 h-2/3 bg-purple-600 rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10 text-center w-full max-w-4xl mx-auto">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">ご清聴ありがとうございました</h1>
+                    <div class="w-24 h-1.5 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mx-auto my-8 sm:my-12"></div>
+                    <div class="space-y-6 text-lg sm:text-xl md:text-2xl text-gray-200">
+                        <p>このロードマップが、私たちの情熱と行動力を未来へと導く、<br>信頼できるコンパスとなることを確信しています。</p>
+                        <p class="font-bold text-3xl text-white my-4">ぜひ、この航海にご一緒させてください。</p>
+                        <p>ご指導のほど、何卒よろしくお願い申し上げます。</p>
+                    </div>
+                </div>
+                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-20 h-20 text-cyan-300 opacity-70 glow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><polygon points="12,6 10.5,13.5 16,16 13.5,10.5"/><polygon points="12,6 13.5,13.5 8,8 10.5,10.5" opacity="0.6"/></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ナビゲーション -->
+    <div class="mt-4 flex items-center justify-center space-x-4">
+        <button id="prevBtn" class="p-3 rounded-full bg-white/80 shadow-lg hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed">
+            <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+        </button>
+        <span id="slide-counter" class="text-lg font-bold text-gray-700 w-20 text-center">1 / 12</span>
+        <button id="nextBtn" class="p-3 rounded-full bg-white/80 shadow-lg hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed">
+            <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+        </button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideCounter = document.getElementById('slide-counter');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach((slide, index) => {
+                if (index === n) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            slideCounter.textContent = `${n + 1} / ${slides.length}`;
+            prevBtn.disabled = n === 0;
+            nextBtn.disabled = n === slides.length - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextBtn.click();
+            } else if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            }
+        });
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
